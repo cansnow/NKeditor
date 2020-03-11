@@ -101,6 +101,7 @@
 			no_data_text : "(⊙o⊙)亲，没有多数据了。",
 			ext_allow : "jpg|png|gif|jpeg",
 			ext_refuse : "exe|txt",
+			extra_params : {},
 			errorHandler : function(messsage, type) {
 				alert(messsage);
 			},
@@ -427,6 +428,10 @@
 			// prepare FormData
 			var formData = new FormData();
 			formData.append(options.src, node.file);
+			// add extra params
+			for(var k in options.extra_params) {
+				formData.append(k, options.extra_params[k]);
+			}
 			xhr.send(formData);
 
 		}

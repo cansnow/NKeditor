@@ -13,6 +13,7 @@ KindEditor.plugin('multiimage', function(K) {
 		imageFileTypes = K.undef(self.imageFileTypes, 'jpg|png|gif|jpeg'),
 		imageUploadLimit = K.undef(self.imageUploadLimit, 20),
 		filePostName = K.undef(self.filePostName, 'imgFile'),
+		extraParams = K.undef(self.extraFileUploadParams, {}),
 		lang = self.lang(name + '.');
 
 	if(typeof jQuery == 'undefined') {
@@ -48,6 +49,7 @@ KindEditor.plugin('multiimage', function(K) {
 			max_filesize : imageSizeLimit,
 			max_filenum : imageUploadLimit,
 			ext_allow : imageFileTypes,
+			extra_params : extraParams,
 			lang : lang,
 			top : self.dialogOffset,
 			fileType : "image",

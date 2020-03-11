@@ -105,6 +105,11 @@
 			K.create('textarea[name="content2"]', {
 				uploadJson : K.basePath+'php/qiniu/upload_json.php',
 				fileManagerJson : K.basePath+'php/qiniu/file_manager_json.php',
+				// 添加上传参数
+				extraFileUploadParams : {
+					name: "RockYang",
+					sex: "Man"
+				},
 				dialogOffset : 0, //对话框距离页面顶部的位置，默认为0居中，
 				allowFileManager : true,
 				allowImageUpload : true,

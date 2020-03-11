@@ -1,11 +1,11 @@
 /*******************************************************************************
 * KindEditor - WYSIWYG HTML Editor for Internet
-* Copyright (C) 2006-2019 kindsoft.net
+* Copyright (C) 2006-2020 kindsoft.net
 *
 * @author Roddy <luolonghao@gmail.com>
 * @website http://www.kindsoft.net/
 * @licence http://www.kindsoft.net/license.php
-* @version 5.0.3 (2019-03-26)
+* @version 5.0.4 (2020-03-11)
 *******************************************************************************/
 (function (window, undefined) {
 	if (window.KindEditor) {
@@ -19,7 +19,7 @@ if (!window.console) {
 if (!console.log) {
 	console.log = function () {};
 }
-var _VERSION = '5.0.3 (2019-03-26)',
+var _VERSION = '5.0.4 (2020-03-11)',
 	_ua = navigator.userAgent.toLowerCase(),
 	_IE = _ua.indexOf('msie') > -1 && _ua.indexOf('opera') == -1,
 	_NEWIE = _ua.indexOf('msie') == -1 && _ua.indexOf('trident') > -1,
@@ -7819,6 +7819,7 @@ KindEditor.plugin('multiimage', function(K) {
 		imageFileTypes = K.undef(self.imageFileTypes, 'jpg|png|gif|jpeg'),
 		imageUploadLimit = K.undef(self.imageUploadLimit, 20),
 		filePostName = K.undef(self.filePostName, 'imgFile'),
+		extraParams = K.undef(self.extraFileUploadParams, {}),
 		lang = self.lang(name + '.');
 	if(typeof jQuery == 'undefined') {
 		K.options.errorMsgHandler(lang.depJQueryError, "error");
@@ -7849,6 +7850,7 @@ KindEditor.plugin('multiimage', function(K) {
 			max_filesize : imageSizeLimit,
 			max_filenum : imageUploadLimit,
 			ext_allow : imageFileTypes,
+			extra_params : extraParams,
 			lang : lang,
 			top : self.dialogOffset,
 			fileType : "image",

@@ -84,7 +84,7 @@ if ($base64) {
         $json->setMessage("上传失败.");
     } else {
         $json->setCode(\JsonResult::CODE_SUCCESS);
-        $json->setMessage("上传成功.");
+        $json->setMessage("上传成功.".$_POST['name']);
         $json->setData(array('url' => QINIU_BUCKET_DOMAIN . $ret['key']));
     }
     $json->output();
